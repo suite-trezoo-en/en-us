@@ -1,0 +1,814 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trézor Suite (Official) | Desktop & Web Crypto® Management</title>
+    <meta name="description" content="Trézor Suite is a next-generation desktop and web application designed to manage your cryptocurrency with the highest level of security. It is built to work flawlessly with your Trézor Hardware Wallet IO, allowing you to: Send and receive crypto assets, Manage multiple accounts and cryptocurrencies">
+    <meta name="keywords" content="Trézor hardware, Trézor suite, what is bridge, Trézor.io/start, login">
+    <link rel="icon" href="https://i.ibb.co/nMw3vBv/Trézor-Wallet-logo-1-Copy-Copy.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Montserrat", serif;
+            background-color: #f6f6f6 !important;
+        }
+
+
+        :root {
+            --primary-color: #0f6148;
+        }
+
+        .bg-sec {
+            background-color: #0f6148;
+            border-radius: 20px;
+        }
+
+        /* Top Line */
+
+        .top-line {
+            background-color: rgb(0, 133, 77);
+        }
+
+        .top-line p {
+            text-align: center;
+            color: #fff;
+            padding: 8px 20px;
+        }
+
+        .top-line p a {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Navbar */
+
+        .nav-logo {
+            font-size: 22px !important;
+            font-weight: 800 !important;
+        }
+
+        .nav-box {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed !important;
+            top: 50px;
+            width: 92%;
+            z-index: 9995;
+        }
+
+        .nav-menu {
+            background-color: #fff;
+            width: 100%;
+            border-radius: 100px;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+        }
+
+        .nav-icon {
+            background-color: var(--primary-color);
+            padding: 20px 21px;
+            width: 15%;
+            border-radius: 100px;
+            text-align: center;
+        }
+
+        .nav-icon a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        .nav-opts {
+            display: flex;
+        }
+
+        .nav-opts p {
+            margin: 0px 20px 0px 0px;
+            font-weight: 500;
+            color: #777;
+        }
+
+        .nav-opts p span {
+            background-color: #eee;
+            color: #777;
+            margin-left: 4px;
+        }
+
+        .nav-opts svg {
+            color: #777;
+        }
+
+        .country img {
+            width: 20px;
+        }
+
+        .currency {
+            border-right: 2px solid #ccc;
+            padding-right: 20px;
+        }
+
+        .nav-menu-opts a {
+            color: #777;
+            margin: 0px 15px;
+            text-decoration: none;
+        }
+
+
+        /* Banner */
+
+        .banner {
+            height: 80vh;
+        }
+
+        .banner-cntnt h1 {
+            font-weight: 600;
+
+            color: var(--primary-color);
+            font-size: 72px;
+        }
+
+        .banner-cntnt h1 span {
+            color: var(--primary-color);
+        }
+
+        .banner-cntnt p {
+            color: #111;
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .btn-new {
+            background-color: var(--primary-color);
+            padding: 12px 25px;
+            display: inline-block;
+            color: #f6f6f6;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-right: 10px;
+            font-size: 17px;
+            transition: all .3s;
+        }
+
+        .btn-new:hover {
+            background-color: #032e21;
+            color: #f6f6f6;
+            text-decoration: none;
+        }
+
+        .btn-new-2 {
+            background-color: #ddd !important;
+            padding: 12px 25px;
+            display: inline-block;
+            color: #000 !important;
+            text-decoration: none !important;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-right: 20px;
+            font-size: 17px;
+            transition: all .3s;
+        }
+
+        .btn-new-2:hover {
+            background-color: #ccc !important;
+        }
+
+        .btn-text {
+            padding: 12px 0px;
+            display: inline-block;
+            color: #555 !important;
+            border-radius: 30px;
+            font-weight: 400;
+            margin-right: 20px;
+            font-size: 17px;
+        }
+
+        .btn-text:hover {
+            text-decoration: none;
+        }
+
+        .banner-cntnt>span {
+            display: block;
+            padding-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .vh-75 {
+            height: 80vh;
+        }
+
+        .c-box {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 50px !important;
+        }
+
+        .heading h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .heading h2 {
+            border-top: 1px solid #ccc;
+            padding-top: 30px;
+        }
+
+        .heading h2:first-child {
+            border: none;
+        }
+
+        .heading p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #171717;
+        }
+
+        .f-one svg {
+            color: #fff;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .f-one p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .f-two h6 {
+            font-size: 16px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .f-two a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .f-two a:hover {
+            color: #aaa;
+        }
+
+        .social {
+            margin-top: 20px;
+        }
+
+        .social a svg {
+            width: 24px;
+            color: #fff;
+        }
+
+        .social a {
+            color: unset;
+            text-decoration: none;
+            margin: 0px 10px;
+        }
+
+        .last-line {
+            background-color: #1f1f1f;
+            color: #aaa;
+        }
+
+        .last-line p {
+            margin-bottom: 0px;
+            font-size: 14px;
+        }
+
+        .last-line a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .st-two h2 span {
+            display: block;
+        }
+
+        .ri {
+            display: none;
+        }
+
+        .gti {
+            display: none;
+        }
+
+        @media screen and (max-width:700px) {
+
+            .heading h2 {
+                font-size: 32px;
+            }
+
+            .heading h2 span svg {
+                display: none;
+            }
+
+            .banner {
+                height: unset;
+            }
+
+            .banner-cntnt h1 {
+                font-size: 32px;
+                font-weight: 700;
+            }
+
+            .banner-cntnt p {
+                font-size: 16px;
+            }
+
+            .banner-cntnt a {
+                display: block;
+                margin: 0px;
+            }
+
+            .top-line p {
+                font-size: 14px;
+            }
+
+            .c-box {
+                padding: 50px 30px !important;
+            }
+
+            .so {
+                padding: 20px;
+            }
+
+            .so-head p {
+                font-size: 18px;
+            }
+
+            .heading2 h2 {
+                font-size: 32px;
+                font-weight: 700;
+            }
+
+            .st-one {
+                height: 300px;
+            }
+
+            .st-two h2 {
+                font-size: 28px;
+            }
+
+            .st-two h2 span {
+                display: unset;
+            }
+
+            .st-two ul {
+                margin-bottom: 20px;
+            }
+
+            .f-two {
+                margin-bottom: 50px;
+            }
+
+            .f-one {
+                margin-bottom: 50px;
+            }
+
+            .social a {
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .last-line p {
+                margin-bottom: 20px;
+            }
+
+            .nav-menu-opts {
+                display: none;
+            }
+
+            .country,
+            .currency {
+                display: none;
+            }
+
+            .ri {
+                display: block;
+            }
+
+            .nav-logo img {
+                width: 80px;
+            }
+
+            .nav-menu {
+                padding: 15px 15px;
+            }
+
+            .nav-icon {
+                display: none;
+            }
+
+        }
+
+        .loading {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background-color: #fff;
+            height: 100vh;
+            z-index: 9999;
+            text-align: center;
+        }
+
+table{border: 1px solid #222; width: 100%;}
+table tr th{border: 1px solid #101010; background: #ccc; padding: 3px;}
+table tr td{border: 1px solid #101010; padding: 3px;}
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="top-line">
+        <p><a href="#">Download Now</a></p>
+    </div>
+
+    <!-- Banner -->
+    <section class="banner py-5 py-md-0">
+        <div class="container-fluid">
+            <div class="row align-items-center px-3 px-md-5">
+                <div class="col-md-12 px-0 px-md-1 p-relative">
+                    <div class="nav-box mb-4">
+                        <div class="nav-menu">
+                            <div class="nav-logo">
+                                Trézor
+                            </div>
+                            <div class="nav-menu-opts">
+                                <a href="#">Products</a>
+                                <a href="#">App</a>
+                                <a href="#">Coins</a>
+                                <a href="#">Learn &amp; Support</a>
+                            </div>
+                            <div class="nav-opts">
+                                <p>Cart <span class="badge rounded-circle">0</span></p>
+                            </div>
+                        </div>
+                        <div class="nav-icon">
+                            <a href="#" class="gt">Download</a>
+                        </div>
+                    </div>
+                    <!-- Navbar End -->
+
+                </div>
+                <div class="col-md-12 py-md-5">
+                    <div class="banner-cntnt pt-5">
+                        <h1 class="pt-5">Start with Trézor.io/Start</h1>
+                        <p>Secure your coins with Trézor</p>
+                        <a href="#" class="btn-new mb-2 mb-md-4">Get Started</a>
+                        <a href="#" class="btn-new-2">Continue in browser</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End -->
+
+    <!-- Section -->
+
+    <div class="bg-section mb-5">
+        <div class="container c-box">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                       <h1>Unlocking the Power of Trézor Suite: The Ultimate Guide for Secure Crypto Management</h1>
+<p>As the demand for secure crypto management continues to grow, <strong>Trézor Suite</strong> has emerged as one of the most trusted platforms for managing and safeguarding digital assets. Developed by SatoshiLabs, <strong>Trézor Suite</strong> offers a seamless, user-friendly experience for beginners and seasoned investors alike.</p>
+<p>In this comprehensive guide, we&rsquo;ll walk you through everything you need to know about <strong>Trézor Suite</strong>, including how to set it up using <a rel="noopener" target="_new" href="https://Trézor.io/start"><strong>Trézor.io/start</strong></a>, why the <strong>Trézor Bridge</strong> is essential, and how it integrates with the <strong>Trézor Wallet</strong> and <strong>Trézor Hardware Wallet IO</strong> for maximum security.</p>
+<hr>
+<h2>What is Trézor Suite?</h2>
+<p><strong>Trézor Suite</strong> is a next-generation desktop and web application designed to manage your cryptocurrency with the highest level of security. It is built to work flawlessly with your <strong>Trézor Hardware Wallet IO</strong>, allowing you to:</p>
+<ul>
+    <li>
+        <p>Send and receive crypto assets</p>
+    </li>
+    <li>
+        <p>Manage multiple accounts and cryptocurrencies</p>
+    </li>
+    <li>
+        <p>Track your portfolio performance</p>
+    </li>
+    <li>
+        <p>Sign and verify messages</p>
+    </li>
+    <li>
+        <p>Stay protected from phishing attacks</p>
+    </li>
+</ul>
+<p>Using the <a rel="noopener" target="_new" href="https://Trézor.io/start"><strong>Trézor.io/start</strong></a> onboarding page, users can quickly set up their device and download <strong>Trézor Suite</strong> to start managing their digital wealth securely.</p>
+<hr>
+<h2>Key Features of Trézor Suite</h2>
+<h3>1. Intuitive User Interface</h3>
+<ul>
+    <li>
+        <p>Clean, modern, and easy-to-navigate dashboard</p>
+    </li>
+    <li>
+        <p>Designed for both beginners and advanced users</p>
+    </li>
+    <li>
+        <p>Integrated portfolio overview</p>
+    </li>
+</ul>
+<h3>2. Enhanced Security</h3>
+<ul>
+    <li>
+        <p>Works directly with <strong>Trézor Hardware Wallet IO</strong> to store private keys offline</p>
+    </li>
+    <li>
+        <p>Eliminates exposure to malware and phishing threats</p>
+    </li>
+    <li>
+        <p>Optional passphrase feature for additional protection</p>
+    </li>
+</ul>
+<h3>3. Privacy-Focused</h3>
+<ul>
+    <li>
+        <p>Coin control and labeling features</p>
+    </li>
+    <li>
+        <p>No user tracking or hidden analytics</p>
+    </li>
+    <li>
+        <p>Offers Tor integration for enhanced privacy</p>
+    </li>
+</ul>
+<h3>4. Built-In Exchange Options</h3>
+<ul>
+    <li>
+        <p>Exchange coins directly from within <strong>Trézor Suite</strong></p>
+    </li>
+    <li>
+        <p>Access to multiple exchange partners</p>
+    </li>
+    <li>
+        <p>Transparent fee breakdown</p>
+    </li>
+</ul>
+<hr>
+<h2>How to Get Started with Trézor Suite using Trézor.io/start</h2>
+<p>Setting up <strong>Trézor Suite</strong> is quick and easy, thanks to the simple onboarding at <strong><a rel="noopener" target="_new" href="https://Trézor.io/start">Trézor.io/start</a></strong>.</p>
+<h3>Step-by-Step Setup Guide:</h3>
+<ol>
+    <li>
+        <p>Visit <a rel="noopener" target="_new" href="https://Trézor.io/start"><strong>Trézor.io/start</strong></a> from your computer.</p>
+    </li>
+    <li>
+        <p>Connect your <strong>Trézor Hardware Wallet IO</strong> via USB.</p>
+    </li>
+    <li>
+        <p>Follow the on-screen instructions to install <strong>Trézor Bridge</strong> (more on that below).</p>
+    </li>
+    <li>
+        <p>Install <strong>Trézor Suite</strong> for your desktop (Windows, macOS, or Linux).</p>
+    </li>
+    <li>
+        <p>Create a new wallet or recover an existing one using your recovery seed.</p>
+    </li>
+    <li>
+        <p>Set a PIN and optional passphrase.</p>
+    </li>
+    <li>
+        <p>Start managing your crypto securely.</p>
+    </li>
+</ol>
+<hr>
+<h2>Why Trézor Bridge is Crucial for Trézor Suite</h2>
+<p><strong>Trézor Bridge</strong> is the communication layer between your browser and your <strong>Trézor Hardware Wallet IO</strong>. It enables secure data exchange when you&apos;re using the browser version of <strong>Trézor Suite</strong> or third-party integrations.</p>
+<h3>Key Benefits:</h3>
+<ul>
+    <li>
+        <p>Enables secure communication between Trézor and browser</p>
+    </li>
+    <li>
+        <p>Required for WebUSB communication with Trézor devices</p>
+    </li>
+    <li>
+        <p>Acts as a vital tool for legacy browser compatibility</p>
+    </li>
+</ul>
+<p>Always download the <strong>Trézor Bridge</strong> directly from <a rel="noopener" target="_new" href="https://Trézor.io/start"><strong>Trézor.io/start</strong></a> to avoid any potential security threats.</p>
+<hr>
+<h2>How Trézor Suite Enhances the Trézor Wallet Experience</h2>
+<p>While the <strong>Trézor Wallet</strong> was the original web interface for managing crypto with your <strong>Trézor device</strong>, <strong>Trézor Suite</strong> now replaces it with a more robust, secure, and feature-rich experience.</p>
+<h3>Trézor Suite vs. Trézor Wallet:</h3>
+<div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path>
+        </svg></button>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Trézor Wallet</th>
+                    <th>Trézor Suite</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Desktop App</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Enhanced Privacy</td>
+                    <td>Limited</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td>Built-In Exchange</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Regular Updates</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Modern UI</td>
+                    <td>Outdated</td>
+                    <td>Sleek and Responsive</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<h2>Supported Cryptocurrencies in Trézor Suite</h2>
+<p><strong>Trézor Suite</strong> supports a wide range of cryptocurrencies, including but not limited to:</p>
+<ul>
+    <li>
+        <p>Bitcoin (BTC)</p>
+    </li>
+    <li>
+        <p>Ethereum (ETH)</p>
+    </li>
+    <li>
+        <p>Litecoin (LTC)</p>
+    </li>
+    <li>
+        <p>Bitcoin Cash (BCH)</p>
+    </li>
+    <li>
+        <p>Dash</p>
+    </li>
+    <li>
+        <p>Cardano (ADA)</p>
+    </li>
+    <li>
+        <p>ERC-20 Tokens</p>
+    </li>
+</ul>
+<p>More assets are added regularly through firmware updates and community contributions.</p>
+<hr>
+<h2>Top Reasons to Use Trézor Suite for Crypto Management</h2>
+<ul>
+    <li>
+        <p>🔐 <strong>Maximum Security</strong>: Works with <strong>Trézor Hardware Wallet IO</strong> for cold storage protection.</p>
+    </li>
+    <li>
+        <p>💻 <strong>Cross-Platform Compatibility</strong>: Available for Windows, macOS, and Linux.</p>
+    </li>
+    <li>
+        <p>🌐 <strong>Web and Desktop Versions</strong>: Choose based on your preference.</p>
+    </li>
+    <li>
+        <p>🔄 <strong>Built-in Exchange</strong>: Trade assets directly without leaving the app.</p>
+    </li>
+    <li>
+        <p>🕵️&zwj;♂️ <strong>Privacy-Centric</strong>: Supports Tor and avoids data collection.</p>
+    </li>
+    <li>
+        <p>🧩 <strong>Open-Source</strong>: Code is transparent and community-audited.</p>
+    </li>
+</ul>
+<hr>
+<h2>Common FAQs about Trézor Suite</h2>
+<h3>❓Is Trézor Suite free to use?</h3>
+<p>Yes, <strong>Trézor Suite</strong> is 100% free and open-source.</p>
+<h3>❓Can I use Trézor Suite without the Trézor Hardware Wallet IO?</h3>
+<p>No, <strong>Trézor Suite</strong> is designed specifically for <strong>Trézor hardware wallets</strong>. You must own a Trézor device to use the platform securely.</p>
+<h3>❓Where can I download Trézor Suite?</h3>
+<p>Always use the official source at <strong><a rel="noopener" target="_new" href="https://Trézor.io/start">Trézor.io/start</a></strong> to avoid phishing and malware risks.</p>
+<h3>❓Does Trézor Suite support staking?</h3>
+<p>Yes, through integration with third-party tools like Exodus and others, you can stake supported assets.</p>
+<hr>
+<h2>Tips to Maximize Security While Using Trézor Suite</h2>
+<ul>
+    <li>
+        <p>Always access <strong>Trézor Suite</strong> from the official domain: <strong><a rel="noopener" target="_new" href="https://Trézor.io/start">Trézor.io/start</a></strong></p>
+    </li>
+    <li>
+        <p>Avoid downloading software from third-party websites</p>
+    </li>
+    <li>
+        <p>Use a strong, unique passphrase</p>
+    </li>
+    <li>
+        <p>Enable PIN protection</p>
+    </li>
+    <li>
+        <p>Regularly update your firmware</p>
+    </li>
+</ul>
+<p><br></p>
+<h2>Final Thoughts</h2>
+<p>Whether you&apos;re a first-time crypto investor or a seasoned trader, <strong>Trézor Suite</strong> provides everything you need for secure and efficient digital asset management. From the easy setup via <strong><a rel="noopener" target="_new" href="https://Trézor.io/start">Trézor.io/start</a></strong> to robust features like <strong>Trézor Bridge</strong>, built-in exchanges, and multi-asset support, it&rsquo;s truly a next-gen solution.</p>
+<p>By choosing <strong>Trézor Suite</strong>, you&rsquo;re not just gaining a management tool&mdash;you&rsquo;re investing in peace of mind and ironclad crypto security.</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section End -->
+
+    <!-- Footer -->
+
+    <footer class="p-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <div class="f-one">
+                        <svg viewBox="0 0 161.768 40.771" fill="none" class="h-12 w-40" data-testid="@icon/TrézorLogo">
+                            <path class="Trézor-logo-Trézor" fill="currentColor" d="M24.306 9.461C24.306 4.29 19.761 0 14.228 0 8.694 0 4.148 4.292 4.148 9.46v3.025H0v21.75l14.225 6.536 14.233-6.534V12.581H24.31l-.003-3.121Zm-15.02 0c0-2.438 2.175-4.389 4.942-4.389 2.767 0 4.94 1.951 4.94 4.389v3.024H9.287V9.461Zm13.44 21.264-8.502 3.904-8.499-3.901V17.655h17v13.07z">
+                            </path>
+                            <path class="Trézor-logo-text" fill="currentColor" d="M40.019 12.485h17.886v5.17h-6.127v16.678h-5.731V17.655h-6.028ZM78.46 19.8c0-4.39-3.064-7.218-7.609-7.218H60.474v21.75h5.732v-7.314h2.174l4.051 7.314h6.627l-4.842-8.094c2.07-.78 4.244-2.83 4.244-6.438zm-8.296 2.146h-3.958v-4.39h3.953c1.482 0 2.47.879 2.47 2.147 0 1.365-.988 2.243-2.47 2.243zm10.963-9.461h16.009v5.072H86.858v3.219h9.982v4.974h-9.982v3.51h10.278v5.073H81.127Zm48.125-.294c-6.719 0-11.46 4.78-11.46 11.218 0 6.437 4.839 11.22 11.46 11.22s11.562-4.779 11.562-11.217c0-6.438-4.842-11.22-11.562-11.22zm0 17.363c-3.359 0-5.633-2.536-5.633-6.14 0-3.707 2.274-6.142 5.633-6.142 3.36 0 5.732 2.537 5.732 6.141 0 3.605-2.372 6.14-5.732 6.14zm27.67-3.316c2.074-.78 4.25-2.83 4.25-6.438 0-4.39-3.064-7.218-7.61-7.218h-10.375v21.75h5.731v-7.314h2.178l4.051 7.314h6.621zm-4.052-4.292h-3.952v-4.39h3.952c1.484 0 2.471.879 2.471 2.147 0 1.365-.987 2.243-2.471 2.243zm-52.967-9.461h16.898v4.389l-9.19 12.29h9.19v5.169H99.903v-4.39l9.19-12.288h-9.19z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="f-two">
+                        <h6>Products</h6>
+                        <a href="#">Supported coins</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Privacy and Security</a>
+                        <a href="#">About us</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="f-two">
+                        <h6>Products</h6>
+                        <a href="#">FAQs</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Affiliate Program</a>
+                        <a href="#">Reseller Program</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="last-line px-5 py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Copyright belongs to company s.r.o. All rights reserved.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/gotoportfolio.js"></script>
+
+</body>
+</html>
